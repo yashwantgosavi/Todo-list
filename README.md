@@ -27,7 +27,3 @@ A todo list app
 - task : if we want to delete or complete any task. we need to know which task is clicked. for that we will generate unique ID for every task, and also true/false case. for storing this data, in js best way is create objects so I will create new object for everytask 
 			- we need to store text in object
 			- ID and true/false for completed or uncompleted
-
-- 
-
-# Todo-list
