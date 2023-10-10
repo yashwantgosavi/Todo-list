@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+/* Root */
+:root {
+  /* colors */
+  --yellow: #f5ec6d;
+  --orange: #ef8555;
+  --red: #be375f;
+  --voilet: #60246c;
+  --lightGrey: #ebebeb;
+  --grey: #585858;
+  --blue: #4044c9;
+  --black: #303442;
+  --white: #fefff2;
+  --descriptionFont: "Roboto", sans-serif;
+  --borderRadius: 25px;
+  --borderRadius-sm: 14px;
+  --box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4),
+    0px 7px 13px -3px rgba(0, 0, 0, 0.3), 0px -3px 0px inset rgba(0, 0, 0, 0.2);
+}
+
+/* common CSS */
+* {
+  box-sizing: border-box;
+  font-family: var(--descriptionFont);
+}
+img{
+  width: 15px;
+  height: 15px;
+  color: var(--blue);
+}
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--lightGrey);
+}
+
+/* custom css */
+main {
+  width: 350px;
+  height: 665px;
+  border-radius: var(--borderRadius);
+  background-color: var(--blue);
+  position: relative;
+  box-shadow: var(--box-shadow);
+}
+.wrapper {
+  padding: 5%;
+}
+
+h1 {
+  color: var(--lightGrey);
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+}
+nav {
+  /* padding-top: 5px; */
+  border-radius: 25px 25px 0px 0px;
+  z-index: 100;
+  position: relative;
+}
+.btn {
+  background-color: var(--white);
+  border-radius: var(--borderRadius-sm);
+  width: fit-content;
+  padding: 10px;
+}
+.allTask {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+#addTask {
+  background-color: var(--white);
+  height: 45px;
+  width: 100%;
+  border-radius: var(--borderRadius-sm);
+  border: none;
+}
+#addTask:focus-visible {
+  border-color: #60246c;
+}
+nav h3 {
+  display: inline;
+  color: var(--black);
+  font-size: 16px;
+}
+.w-48 {
+  width: 48%;
+}
+
+.takingInput{
+  margin: 15px 0px;
+  display: flex;
+}
+button {
+  width: 55px;
+  height: 45px;
+  margin-left: 15px;
+  border-radius: var(--borderRadius-sm);
+  background-color: var(--white);
+  border: none;
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+}
+input {
+  padding: 0px 15px;
+}
+input i {
+  box-shadow: var(--box-shadow);
+}
+input[type="text"]:focus {
+  box-shadow: var(--box-shadow);
+  transition: all 0.5s;
+  border: none;
+  outline: none;
+  box-shadow: 0px -3px 0px inset rgba(0, 0, 0, 0.2);
+}
+/* tasklist ui */
+#taskList {
+  height: 376px;
+}
+section{
+  background-color: var(--white);
+  border-radius: 25px 0px 25px 25px;
+}
+ul {
+  list-style: none;
+  padding-left: 0px;
+  overflow-y: scroll;
+}
+ul::-webkit-scrollbar {
+  width: 0.2em;
+}
+ul::-webkit-scrollbar-thumb {
+  background-color: rgb(229, 229, 229);
+  outline: 1px solid rgb(228, 228, 228);
+  border-radius: 10px;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  background-color: var(--lightGrey);
+  border-radius: var(--borderRadius-sm);
+  padding:15px;
+  margin: 15px;
+  color: var(--black);
+}
+h4 {
+  margin: 15px;
+}
+input[type="radio"] {
+  height: 15px;
+  width: 15px;
+  background-color: var(--blue);
+}
+input[type="radio"]:hover {
+  cursor: pointer;
+}
+input[type="radio"]:checked::before{
+background-color: var(--blue);
+}
+
+a {
+  color: var(--blue);
+}
+.completed{
+text-decoration: line-through;
+}
