@@ -51,6 +51,37 @@ function addTaskFromInput(taskText) {
   notification("Task is added in array");
 }
 
+// In this funtion we will add a task object to the tasks array. It also calls checkList() to refresh the task list in the DOM and displays a notification.
+function addTask(task) {
+  if (task) {
+    tasks.push(task);
+    checkList();
+    notification("Task is added in array");
+  } else {
+    notification("Task is not added in array");
+  }
+}
+
+// This function adds a task to the DOM by creating a new list item (li) with a checkbox, label, and a delete button. It also updates the task count in the DOM.
+function addTaskToDOM(task) {
+  const li = document.createElement("li");
+  li.innerHTML = `
+  <input class="doneTask" type="checkbox" id="${task.id}" name="done" ${
+    task.done ? "checked" : ""
+  } onclick="markCompletedTask('${task.id}', this)"/>
+  <label for="${task.id}" class="${task.done ? "completed" : ""}">${
+    task.text
+  }</label>
+  <a href="#" data-id="${task.id}" onclick="deleteTasks('${
+    task.id
+  }')"><img src="img/trash-solid.svg" alt="trash"></a>
+       `;
+  taskList.append(li);
+  updateTaskCount();
+}
+
+
+
 // This function will removes a task from the tasks array based on its id. It then calls checkList() to refresh the task list in the DOM and updates the task count.
 function deleteTasks(tasksId) {
   const taskToDelete = tasks.find(function (task) {
@@ -100,34 +131,8 @@ function markCompletedTask(tasksId, checkbox) {
   updateTaskCount();
 }
 
-// In this funtion we will add a task object to the tasks array. It also calls checkList() to refresh the task list in the DOM and displays a notification.
-function addTask(task) {
-  if (task) {
-    tasks.push(task);
-    checkList();
-    notification("Task is added in array");
-  } else {
-    notification("Task is not added in array");
-  }
-}
 
-// This function adds a task to the DOM by creating a new list item (li) with a checkbox, label, and a delete button. It also updates the task count in the DOM.
-function addTaskToDOM(task) {
-  const li = document.createElement("li");
-  li.innerHTML = `
-  <input class="doneTask" type="checkbox" id="${task.id}" name="done" ${
-    task.done ? "checked" : ""
-  } onclick="markCompletedTask('${task.id}', this)"/>
-  <label for="${task.id}" class="${task.done ? "completed" : ""}">${
-    task.text
-  }</label>
-  <a href="#" data-id="${task.id}" onclick="deleteTasks('${
-    task.id
-  }')"><img src="img/trash-solid.svg" alt="trash"></a>
-       `;
-  taskList.append(li);
-  updateTaskCount();
-}
+
 
 // here we will print all the task
 function updateTaskCount() {
